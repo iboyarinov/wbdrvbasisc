@@ -3,10 +3,16 @@ package com.selenium.webdriver.db;
 /**
  * Created by Hedg on 11.02.14.
  */
+
+import com.selenium.webdriver.basics.Config;
+
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class initDB {
 
@@ -18,6 +24,13 @@ public class initDB {
             Statement st = connection.createStatement();
             st.setQueryTimeout(60);
 
+            //check if tables already exist
+            String[] tables = Config.getProperty("tables").split(":");
+            for (String str : tables) {
+                if (!ifTableExist(st, str)) {
+
+                }
+            }
 
 
         } catch (SQLException e) {
@@ -25,12 +38,14 @@ public class initDB {
         }
     }
 
-    private static boolean ifTableExist(Statement statement, String tableName) throws SQLException {
+    private static boolean ifTableExist(Statement statement, String tableName) throws SQLException, Exception {
+
         try {
             statement.execute("SELECT * FROM " + tableName);
             return true;
         } catch (SQLException e) {
             return false;
+
         }
     }
 
