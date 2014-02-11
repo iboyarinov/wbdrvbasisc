@@ -13,6 +13,7 @@ variation5_type CHAR(50),
 variation5_value CHAR(50),
 price DOUBLE,
 old_price DOUBLE,
-stock,
-available CHAR(1)
+stock CHAR(50),
+available CHAR(1),
+FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCT(ID)
 )

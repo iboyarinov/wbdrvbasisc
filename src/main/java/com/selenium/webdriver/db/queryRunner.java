@@ -15,7 +15,6 @@ public class queryRunner {
 
     public static ResultSet runQuery(Statement st, String query) throws SQLException {
         ResultSet rs = st.executeQuery(query);
-
         return rs;
     }
 
