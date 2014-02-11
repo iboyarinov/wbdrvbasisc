@@ -7,10 +7,7 @@ package com.selenium.webdriver.db;
 import com.selenium.webdriver.basics.Config;
 
 import java.lang.reflect.Array;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +25,7 @@ public class initDB {
             String[] tables = Config.getProperty("tables").split(":");
             for (String str : tables) {
                 if (!ifTableExist(st, str)) {
-
+                    ResultSet rs = queryRunner.runQuery(st,Config.getProperty(str));
                 }
             }
 

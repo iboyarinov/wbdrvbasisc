@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class queryRunner {
 
-    public ResultSet runQuery(Statement st, String query) throws SQLException {
+    public static ResultSet runQuery(Statement st, String query) throws SQLException {
         ResultSet rs = st.executeQuery(query);
 
         return rs;
