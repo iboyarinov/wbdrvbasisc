@@ -32,7 +32,8 @@ public class initDB {
         Statement statement = createConnection().createStatement();
 
         try {
-            statement.executeUpdate(Config.getProperty("brandsData.sql"));
+            statement.execute(Config.getProperty("brandsTableStructure"));
+            statement.executeUpdate(Config.getProperty("brandsData"));
         //    statement.executeUpdate(Config.getProperty("products"));
      //       statement.executeUpdate(Config.getProperty("product_variants"));
 

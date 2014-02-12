@@ -34,6 +34,10 @@ public class pageTest {
 
     @BeforeSuite
     public void setUp() throws Exception {
+        String[] tables = Config.getProperty("dbtables").split(";");
+        int d = tables.length;
+
+
         try {
             wb = Driver.getDriver();
         } catch (Exception e) {
