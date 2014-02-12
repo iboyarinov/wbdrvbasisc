@@ -1,12 +1,6 @@
-package com.selenium.webdriver.db;
+package com.selenium.webdriver.basics.db;
 
-import java.io.InputStream;
-import java.io.Reader;
-import java.math.BigDecimal;
-import java.net.URL;
 import java.sql.*;
-import java.util.Calendar;
-import java.util.Map;
 
 /**
  * Created by Hedg on 11.02.14.

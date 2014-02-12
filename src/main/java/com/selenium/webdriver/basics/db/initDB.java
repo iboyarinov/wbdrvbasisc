@@ -1,4 +1,4 @@
-package com.selenium.webdriver.db;
+package com.selenium.webdriver.basics.db;
 
 /**
  * Created by Hedg on 11.02.14.
@@ -6,14 +6,11 @@ package com.selenium.webdriver.db;
 
 import com.selenium.webdriver.basics.Config;
 
-import java.lang.reflect.Array;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class initDB {
 
-    public static void createConnection() throws Exception {
+    public static Connection createConnection() throws Exception {
         Connection connection = null;
 
         try {
@@ -25,7 +22,7 @@ public class initDB {
             String[] tables = Config.getProperty("tables").split(":");
             for (String str : tables) {
                 if (!ifTableExist(st, str)) {
-                    ResultSet rs = queryRunner.runQuery(st,Config.getProperty(str));
+                    ResultSet rs = queryRunner.runQuery(st, Config.getProperty(str));
                 }
             }
 
@@ -33,6 +30,7 @@ public class initDB {
         } catch (SQLException e) {
             System.out.println("SQLException" + e.getMessage());
         }
+        return connection;
     }
 
     private static boolean ifTableExist(Statement statement, String tableName) throws SQLException, Exception {
@@ -44,6 +42,10 @@ public class initDB {
             return false;
 
         }
+    }
+
+    private static void closeConnection(Connection conn) throws SQLException {
+        conn.close();
     }
 
 }
