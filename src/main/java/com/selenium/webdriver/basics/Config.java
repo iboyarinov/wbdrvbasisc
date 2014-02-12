@@ -57,7 +57,7 @@ public class Config {
     }
 
     private Config() throws Exception {
-        loadProperties("properties");
+        loadProperties("/properties");
     }
 
     public static String getProperty(String propertyName) throws Exception {

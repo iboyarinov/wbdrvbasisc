@@ -6,6 +6,7 @@ import com.selenium.webdriver.basics.db.initDB;
 import com.selenium.webdriver.basics.testng.TestDataProvider;
 import com.selenium.webdriver.basics.testng.TestDataSource;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -40,15 +41,15 @@ public class pageTest {
         }
 
         //init db
- //       try {
- //           initDB.createDB();
- //       } catch (SQLException e) {
- //           System.out.println("Cannot get instance of DB " + e.getMessage());
- //       }
+        try {
+            initDB.createDB();
+        } catch (SQLException e) {
+            System.out.println("Cannot get instance of DB " + e.getMessage());
+        }
     }
 
     @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider")
-    @TestDataSource(csv = "CSVData/SimpleTest.csv", csvDelimiter = ";")
+    @TestDataSource(csv = "/CSVData/SimpleTest.csv", csvDelimiter = ";")
     public void runTest(HashMap<String, String> testData) throws Exception {
         String[] startURL = testData.get("").split(",");
 
@@ -69,5 +70,10 @@ public class pageTest {
         } catch (Exception e) {
 
         }
+    }
+
+    @AfterSuite
+    public void shoutDown(){
+        wb.close();
     }
 }
