@@ -1,0 +1,14 @@
+insert into products values(1,"Test_NeuesProdukt",2);
+insert into products values(2,"Techniksofa",3);
+insert into products values(3,"Rasierapparat Typ XL34 Bluestar",4);
+insert into products values(4,"Product 1 - Checkout",4);
+insert into products values(5,"Checkout Product 5 (Raubkopie)",5);
+insert into products values(6,"T-Shirt Motiv Blume",6);
+insert into products values(7,"3D-Tencel Matratzen-Spannbezug wasserdicht in 60x120 bis..",7);
+insert into products values(8,"Komfort Plus KS in 80x200 bis 160x200...",7);
+insert into products values(9,"stillTestingVariants",8);
+insert into products values(10,"Testing umlauts - öäz23gf",9);
+insert into products values(11,"Hinörk Schimmelschutz für Stühle",13);
+insert into products values(12,"test variants",10);
+insert into products values(13,"test_smart1349",10);
+insert into products values(14,"forTestingThumbs01",12);

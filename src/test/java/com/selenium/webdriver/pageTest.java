@@ -1,11 +1,14 @@
 package com.selenium.webdriver;
 
+import com.codeborne.selenide.impl.WebElementsCollection;
 import com.selenium.webdriver.basics.Config;
 import com.selenium.webdriver.basics.Driver;
 import com.selenium.webdriver.basics.db.initDB;
 import com.selenium.webdriver.basics.testng.TestDataProvider;
 import com.selenium.webdriver.basics.testng.TestDataSource;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -58,14 +61,29 @@ public class pageTest {
         String[] startURL = testData.get("").split(",");
 
         wb.get("http://test.rakuten-shop.de/teste-41755160/");
-        List<String> firstList = new ArrayList<>();
+        WebElement category = wb.findElement(By.linkText("Teste"));
+        category.click();
+        wb.getCurrentUrl();
+
+        //WebElement list = wb.findElement(By.className("brands"));
+        WebElement list = wb.findElement(By.xpath("//*[text()='Marken']"));
+        list.click();
+        List<WebElement> values = list.findElements(By.xpath("//a[contains(@href,'brand=')]"));
+        System.out.println("Size is " + values.size());
+        for(WebElement value : values){
+            System.out.println(value.getText());
+        }
+
+        wb.findElement(By.linkText("Timberland")).click();
+
+        List<String> firstList = new ArrayList<String>();
         firstList.add("A");
         firstList.add("B");
         firstList.add("C");
 
-        List<String> secondList = new ArrayList<>();
+        List<String> secondList = new ArrayList<String>();
         secondList.add("A");
-        secondList.add("B");
+        secondList.add("C");
         secondList.add("C");
 
         assertThat(firstList).as("Some list").containsAll(secondList);

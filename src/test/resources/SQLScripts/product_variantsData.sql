@@ -1,0 +1,3 @@
+insert into product_variants values(1,10,"Variant type 1","Variant value 1","Variant type 2","Variant value 2","Variant type 3","Variant value 3",60.00,66.00,111,'Y');
+insert into product_variants values(2,10,"Variant type 1","Variant value 11","Variant type 2","Variant value 22","Variant type 3","Variant value 33",64.00,66.00,111,'Y');
+insert into product_variants values(2,10,"Variant type 1","Variant value 111","Variant type 2","Variant value 222","Variant type 3","Variant value 333",70.00,100.00,111,'Y');

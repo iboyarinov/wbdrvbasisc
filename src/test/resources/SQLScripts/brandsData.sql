@@ -10,3 +10,4 @@ insert into brands values(9,"Timberland");
 insert into brands values(10,"1");
 insert into brands values(11,"2");
 insert into brands values(12,"123");
+insert into brands values(13,"flower power");
