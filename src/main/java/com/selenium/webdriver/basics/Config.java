@@ -40,7 +40,7 @@ public class Config {
             }
             for (String file : files) {
                 System.out.println(file);
-                File localFile = new File("config" + System.getProperty("file.separator") + file);
+                File localFile = new File("properties" + System.getProperty("file.separator") + file);
                 if (localFile.isDirectory()) continue;
                 FileInputStream fis = new FileInputStream(localFile.getAbsolutePath());
                 prop.load(fis);
@@ -57,7 +57,7 @@ public class Config {
     }
 
     private Config() throws Exception {
-        loadProperties("src\\main\\resources\\properties");
+        loadProperties("properties");
     }
 
     public static String getProperty(String propertyName) throws Exception {

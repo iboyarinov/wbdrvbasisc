@@ -1,0 +1,12 @@
+insert into brands values(1,"");
+insert into brands values(2,"1nf");
+insert into brands values(3,"Apple");
+insert into brands values(4,"Braun");
+insert into brands values(5,"Checkout Product 5 (Kopie)");
+insert into brands values(6,"LACOSTE");
+insert into brands values(7,"Matratzenschutz24");
+insert into brands values(8,'Ti.m,be"rla''nd"');
+insert into brands values(9,"Timberland");
+insert into brands values(10,"1");
+insert into brands values(11,"2");
+insert into brands values(12,"123");

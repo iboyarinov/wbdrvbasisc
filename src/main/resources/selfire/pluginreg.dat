@@ -1,0 +1,214 @@
+Generated File. Do not edit.
+
+[HEADER]
+Version|0.16|$
+Arch|x86-msvc|$
+
+[PLUGINS]
+npGoogleUpdate3.dll|$
+C:\Users\iboyarinov\AppData\Local\Google\Update\1.3.22.5\npGoogleUpdate3.dll|$
+1.3.22.5|$
+1392177648154|0|0|$
+Google Update|$
+Google Update|$
+2
+0|application/x-vnd.google.update3webcontrol.3|||$
+1|application/x-vnd.google.oneclickctrl.9|||$
+npGoogleUpdate3.dll|$
+C:\Program Files (x86)\Google\Update\1.3.22.5\npGoogleUpdate3.dll|$
+1.3.22.5|$
+1391836406932|0|0|$
+Google Update|$
+Google Update|$
+2
+0|application/x-vnd.google.update3webcontrol.3|||$
+1|application/x-vnd.google.oneclickctrl.9|||$
+NPSWF32_12_0_0_44.dll|$
+C:\Windows\SysWOW64\Macromed\Flash\NPSWF32_12_0_0_44.dll|$
+12.0.0.44|$
+1391575595085|0|0|$
+Shockwave Flash 12.0 r0|$
+Shockwave Flash|$
+2
+0|application/x-shockwave-flash|Adobe Flash movie|swf|$
+1|application/futuresplash|FutureSplash movie|spl|$
+npgtpo3dautoplugin.dll|$
+C:\Users\iboyarinov\AppData\Roaming\Mozilla\plugins\npgtpo3dautoplugin.dll|$
+0.1.44.29|$
+1391184974000|0|0|$
+Google Talk Plugin Video Accelerator version:0.1.44.29|$
+Google Talk Plugin Video Accelerator|$
+1
+0|application/vnd.gtpo3d.auto|||$
+npo1d.dll|$
+C:\Users\iboyarinov\AppData\Roaming\Mozilla\plugins\npo1d.dll|$
+5.1.4.17398|$
+1391184966000|0|0|$
+Version 5.1.4.17398|$
+Google Talk Plugin Video Renderer|$
+1
+0|application/o1d|Google Talk Plugin Video Renderer|o1d|$
+npgoogletalk.dll|$
+C:\Users\iboyarinov\AppData\Roaming\Mozilla\plugins\npgoogletalk.dll|$
+5.1.4.17398|$
+1391184964000|0|0|$
+Version 5.1.4.17398|$
+Google Talk Plugin|$
+1
+0|application/googletalk|Google voice and video chat|googletalk|$
+nppdf32.dll|$
+C:\Program Files (x86)\Adobe\Reader 11.0\Reader\AIR\nppdf32.dll|$
+11.0.6.70|$
+1387605866000|0|0|$
+Adobe PDF Plug-In For Firefox and Netscape 11.0.06|$
+Adobe Acrobat|$
+7
+0|application/pdf|Acrobat Portable Document Format|pdf|$
+1|application/vnd.adobe.pdfxml|Adobe PDF in XML Format|pdfxml|$
+2|application/vnd.adobe.x-mars|Adobe PDF in XML Format|mars|$
+3|application/vnd.fdf|Acrobat Forms Data Format|fdf|$
+4|application/vnd.adobe.xfdf|XML Version of Acrobat Forms Data Format|xfdf|$
+5|application/vnd.adobe.xdp+xml| Acrobat XML Data Package|xdp|$
+6|application/vnd.adobe.xfd+xml|Adobe FormFlow99 Data File|xfd|$
+nppdf32.dll|$
+C:\Program Files (x86)\Adobe\Reader 11.0\Reader\browser\nppdf32.dll|$
+11.0.6.70|$
+1387605862000|0|0|$
+Adobe PDF Plug-In For Firefox and Netscape 11.0.06|$
+Adobe Acrobat|$
+7
+0|application/pdf|Acrobat Portable Document Format|pdf|$
+1|application/vnd.adobe.pdfxml|Adobe PDF in XML Format|pdfxml|$
+2|application/vnd.adobe.x-mars|Adobe PDF in XML Format|mars|$
+3|application/vnd.fdf|Acrobat Forms Data Format|fdf|$
+4|application/vnd.adobe.xfdf|XML Version of Acrobat Forms Data Format|xfdf|$
+5|application/vnd.adobe.xdp+xml| Acrobat XML Data Package|xdp|$
+6|application/vnd.adobe.xfd+xml|Adobe FormFlow99 Data File|xfd|$
+npjp2.dll|$
+C:\Program Files (x86)\Java\jre7\bin\plugin2\npjp2.dll|$
+10.51.2.13|$
+1387393860000|0|0|$
+Next Generation Java Plug-in 10.51.2 for Mozilla browsers|$
+Java(TM) Platform SE 7 U51|$
+38
+0|application/x-java-applet|Java Applet||$
+1|application/x-java-bean|JavaBeans||$
+2|application/x-java-vm|||$
+3|application/x-java-applet;version=1.1.1|||$
+4|application/x-java-bean;version=1.1.1|||$
+5|application/x-java-applet;version=1.1|||$
+6|application/x-java-bean;version=1.1|||$
+7|application/x-java-applet;version=1.2|||$
+8|application/x-java-bean;version=1.2|||$
+9|application/x-java-applet;version=1.1.3|||$
+10|application/x-java-bean;version=1.1.3|||$
+11|application/x-java-applet;version=1.1.2|||$
+12|application/x-java-bean;version=1.1.2|||$
+13|application/x-java-applet;version=1.3|||$
+14|application/x-java-bean;version=1.3|||$
+15|application/x-java-applet;version=1.2.2|||$
+16|application/x-java-bean;version=1.2.2|||$
+17|application/x-java-applet;version=1.2.1|||$
+18|application/x-java-bean;version=1.2.1|||$
+19|application/x-java-applet;version=1.3.1|||$
+20|application/x-java-bean;version=1.3.1|||$
+21|application/x-java-applet;version=1.4|||$
+22|application/x-java-bean;version=1.4|||$
+23|application/x-java-applet;version=1.4.1|||$
+24|application/x-java-bean;version=1.4.1|||$
+25|application/x-java-applet;version=1.4.2|||$
+26|application/x-java-bean;version=1.4.2|||$
+27|application/x-java-applet;version=1.5|||$
+28|application/x-java-bean;version=1.5|||$
+29|application/x-java-applet;version=1.6|||$
+30|application/x-java-bean;version=1.6|||$
+31|application/x-java-applet;version=1.7|||$
+32|application/x-java-bean;version=1.7|||$
+33|application/x-java-applet;jpi-version=1.7.0_51|||$
+34|application/x-java-bean;jpi-version=1.7.0_51|||$
+35|application/x-java-vm-npruntime|||$
+36|application/x-java-applet;deploy=10.51.2|||$
+37|application/x-java-applet;javafx=2.2.51|||$
+npdeployJava1.dll|$
+C:\Program Files (x86)\Java\jre7\bin\dtplugin\npdeployJava1.dll|$
+10.51.2.13|$
+1387393857000|0|0|$
+NPRuntime Script Plug-in Library for Java(TM) Deploy|$
+Java Deployment Toolkit 7.0.510.13|$
+1
+0|application/java-deployment-toolkit|||$
+npitunes.dll|$
+C:\Program Files (x86)\iTunes\Mozilla Plugins\npitunes.dll|$
+1.0.1.1|$
+1380584316000|0|0|$
+iTunes Detector Plug-in|$
+iTunes Application Detector|$
+1
+0|application/itunes-plugin|This plug-in detects the presence of iTunes when opening iTunes Store URLs in a web page with Firefox.||$
+npatgpc.dll|$
+C:\Users\iboyarinov\AppData\Roaming\Mozilla\plugins\npatgpc.dll|$
+28.4.2012.718|$
+1376492846907|0|0|$
+ActiveTouch General Plugin Container Version 105|$
+ActiveTouch General Plugin Container|$
+1
+0|application/x-atgpc-plugin|General Plugin Container File|gpc|$
+npFoxitReaderPlugin.dll|$
+C:\Program Files (x86)\Foxit Software\Foxit Reader\plugins\npFoxitReaderPlugin.dll|$
+2.2.3.402|$
+1364917546000|0|0|$
+Foxit Reader Plug-In For Firefox and Netscape|$
+Foxit Reader Plugin for Mozilla|$
+2
+0|application/pdf|Acrobat Portable Document Format|pdf|$
+1|application/vnd.fdf|||$
+npicaN.dll|$
+C:\Program Files (x86)\Citrix\ICA Client\npicaN.dll|$
+13.4.0.25|$
+1355487376000|0|0|$
+Citrix Receiver Plugin (Win32)|$
+Citrix ICA Client|$
+1
+0|application/x-ica|Citrix ICA|ica|$
+NPWebSLLauncher.dll|$
+C:\Program Files (x86)\Common Files\Research In Motion\BBWebSLLauncher\NPWebSLLauncher.dll|$
+7.1.0.48|$
+1355403480000|0|0|$
+BlackBerry WebSL Browser Plug-In|$
+RIM Handheld Application Loader|$
+1
+0|application/x-rim-websllauncher|||$
+npIntelWebAPIUpdater.dll|$
+C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT\npIntelWebAPIUpdater.dll|$
+2.0.59.0|$
+1325843012000|0|0|$
+Intel web components updater - Installs and updates the Intel web components|$
+Intel® Identity Protection Technology|$
+1
+0|application/x-vnd-intel-webapi-updater|npIntelWebAPIupdater-2-0|intel_webapi_updater-2-0|$
+npIntelWebAPIIPT.dll|$
+C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT\npIntelWebAPIIPT.dll|$
+2.0.59.0|$
+1325843008000|0|0|$
+Intel web components for Intel® Identity Protection Technology|$
+Intel® Identity Protection Technology|$
+1
+0|application/x-vnd-intel-webapi-ipt-2.0.59|npIntelWebAPIipt-2-0||$
+NPSPWRAP.DLL|$
+C:\PROGRA~2\MICROS~2\Office14\NPSPWRAP.DLL|$
+14.0.4761.1000|$
+1269454958000|0|0|$
+The plug-in allows you to open and edit files using Microsoft Office applications|$
+Microsoft Office 2010|$
+1
+0|application/x-sharepoint|SharePoint Plug-in for Firefox||$
+NPAUTHZ.DLL|$
+C:\PROGRA~2\MICROS~2\Office14\NPAUTHZ.DLL|$
+14.0.4730.1010|$
+1263066138000|0|0|$
+Office Authorization plug-in for NPAPI browsers|$
+Microsoft Office 2010|$
+1
+0|application/x-msoffice14|14.0.4730.1010|*|$
+
+[INVALID]

@@ -12,7 +12,11 @@ import org.testng.annotations.Test;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by Hedg on 11.02.14.
@@ -36,17 +40,30 @@ public class pageTest {
         }
 
         //init db
-        try {
-            conn = initDB.createConnection();
-        } catch (SQLException e) {
-                  System.out.println("Cannot get instance of DB "+ e.getMessage());
-        }
+ //       try {
+ //           initDB.createDB();
+ //       } catch (SQLException e) {
+ //           System.out.println("Cannot get instance of DB " + e.getMessage());
+ //       }
     }
 
     @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider")
     @TestDataSource(csv = "CSVData/SimpleTest.csv", csvDelimiter = ";")
     public void runTest(HashMap<String, String> testData) throws Exception {
+        String[] startURL = testData.get("").split(",");
 
+        wb.get("http://test.rakuten-shop.de/teste-41755160/");
+        List<String> firstList = new ArrayList<>();
+        firstList.add("A");
+        firstList.add("B");
+        firstList.add("C");
+
+        List<String> secondList = new ArrayList<>();
+        secondList.add("A");
+        secondList.add("B");
+        secondList.add("C");
+
+        assertThat(firstList).as("Some list").containsAll(secondList);
 
         try {
         } catch (Exception e) {

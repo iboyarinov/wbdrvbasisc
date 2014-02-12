@@ -7,8 +7,11 @@ import java.sql.*;
  */
 public class queryRunner {
 
-    public static ResultSet runQuery(Statement st, String query) throws SQLException {
-        ResultSet rs = st.executeQuery(query);
+    public static ResultSet runQuery(Connection connection, String query) throws SQLException {
+
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(query);
+
         return rs;
     }
 

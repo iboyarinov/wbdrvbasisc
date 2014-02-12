@@ -10,22 +10,11 @@ import java.sql.*;
 
 public class initDB {
 
-    public static Connection createConnection() throws Exception {
+    private static Connection createConnection() throws Exception {
         Connection connection = null;
 
         try {
-            connection = DriverManager.getConnection("jdbc:com.webdriver.mystest.sqlite:mock.db");
-            Statement st = connection.createStatement();
-            st.setQueryTimeout(60);
-
-            //check if tables already exist
-            String[] tables = Config.getProperty("tables").split(":");
-            for (String str : tables) {
-                if (!ifTableExist(st, str)) {
-                    ResultSet rs = queryRunner.runQuery(st, Config.getProperty(str));
-                }
-            }
-
+            connection = DriverManager.getConnection("jdbc:sqlite::memory:");
 
         } catch (SQLException e) {
             System.out.println("SQLException" + e.getMessage());
@@ -33,19 +22,26 @@ public class initDB {
         return connection;
     }
 
-    private static boolean ifTableExist(Statement statement, String tableName) throws SQLException, Exception {
-
-        try {
-            statement.execute("SELECT * FROM " + tableName);
-            return true;
-        } catch (SQLException e) {
-            return false;
-
-        }
+    public static void closeConnection(Connection conn) throws SQLException {
+        conn.close();
     }
 
-    private static void closeConnection(Connection conn) throws SQLException {
-        conn.close();
+
+    public static void createDB() throws Exception {
+
+        Statement statement = createConnection().createStatement();
+
+        try {
+            statement.executeUpdate(Config.getProperty("brandsData.sql"));
+        //    statement.executeUpdate(Config.getProperty("products"));
+     //       statement.executeUpdate(Config.getProperty("product_variants"));
+
+     //       statement.executeUpdate(Config.getProperty(""));
+       //     statement.executeUpdate(Config.getProperty(""));
+      //      statement.executeUpdate(Config.getProperty(""));
+        } catch (SQLException e) {
+            System.out.println("Cannot create DB " + e.getSQLState() + e.getMessage());
+        }
     }
 
 }
