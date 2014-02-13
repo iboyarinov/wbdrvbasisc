@@ -74,7 +74,16 @@ public class pageTest {
             System.out.println(value.getText());
         }
 
-        wb.findElement(By.linkText("Timberland")).click();
+     //   wb.findElement(By.linkText("Timberland")).click();
+
+        WebElement checkboxList = wb.findElement(By.linkText("Filter"));
+        checkboxList.click();
+
+        List<WebElement> chekboxes = checkboxList.findElements(By.xpath("//div[@id='plst_toolbar']/div[4]/div/ul/li"));
+
+        for (WebElement value : chekboxes){
+           System.out.println(value.getText());
+      }
 
         List<String> firstList = new ArrayList<String>();
         firstList.add("A");
@@ -83,7 +92,7 @@ public class pageTest {
 
         List<String> secondList = new ArrayList<String>();
         secondList.add("A");
-        secondList.add("C");
+   //     secondList.add("C");
         secondList.add("C");
 
         assertThat(firstList).as("Some list").containsAll(secondList);

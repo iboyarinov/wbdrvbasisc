@@ -37,23 +37,6 @@ public class initDB {
 
         try {
             statement.executeQuery("select * from brands");
-        //    System.out.print(statement.execute("select * from brands"));
-        //    statement.executeUpdate("drop table if exists PRODUCT_VARIANTS;");
-        //    statement.executeUpdate("drop table if exists PRODUCTS;");
-        //    statement.executeUpdate("drop table if exists BRANDS;");
-  //          statement.executeUpdate(loadSQLfromFile(Config.getProperty("brandsTableStructure")));
-
-            //insert data to table not perfect, but quickly
-     //       statement.executeUpdate("insert into brands values(1,\"\");");
-     //       statement.executeUpdate("");
-
-     //      statement.executeUpdate(loadSQLfromFile(Config.getProperty("productsTableStructure")));
-   //         statement.executeUpdate(loadSQLfromFile(Config.getProperty("productsData")));
-            //       statement.executeUpdate(Config.getProperty("product_variants"));
-
-            //       statement.executeUpdate(Config.getProperty(""));
-            //     statement.executeUpdate(Config.getProperty(""));
-            //      statement.executeUpdate(Config.getProperty(""));
         } catch (SQLException e) {
             System.out.println("Cannot create DB " + e.getSQLState() + e.getMessage());
         }
