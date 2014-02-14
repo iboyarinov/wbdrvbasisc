@@ -173,15 +173,32 @@ public class pageTest {
         }
     }
 
+
+
     @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider", dependsOnMethods = {"runTest"})
     @TestDataSource(csv = "/CSVData/TestVariantFilter.csv", csvDelimiter = ";")
-    public void VariantTest(HashMap<String, String> testData) {
-      WebDriver selD =  getWebDriver();
+    public void checkFilterAvailable() {
 
 
     }
 
 
+
+
+    @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider", dependsOnMethods = {"runTest"})
+    @TestDataSource(csv = "/CSVData/TestVariantFilter.csv", csvDelimiter = ";")
+    public void VariantTest(HashMap<String, String> testData) {
+        WebDriver selD = getWebDriver();
+
+
+    }
+
+    @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider", dependsOnMethods = {"VariantTest"})
+    @TestDataSource(csv = "/CSVData/TestVariantFilter.csv", csvDelimiter = ";")
+    public void checkAddToCart() {
+
+
+    }
 
 
     @AfterSuite
