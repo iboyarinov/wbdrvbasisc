@@ -1,19 +1,12 @@
 package com.selenium.webdriver;
 
-import com.codeborne.selenide.impl.WebElementsCollection;
-import com.selenium.webdriver.basics.Config;
-import com.selenium.webdriver.basics.Driver;
 import com.selenium.webdriver.basics.db.initDB;
 import com.selenium.webdriver.basics.testng.TestDataProvider;
 import com.selenium.webdriver.basics.testng.TestDataSource;
 import com.selenium.webdriver.page.product;
-import org.apache.bcel.generic.Visitor;
-import org.junit.rules.ExpectedException;
-import org.omg.CORBA._IDLTypeStub;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
@@ -23,6 +16,7 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -40,12 +34,9 @@ public class pageTest {
 
     @BeforeSuite
     public void setUp() throws Exception {
-        String[] tables = Config.getProperty("dbtables").split(";");
-        int d = tables.length;
-
 
         try {
-            wb = Driver.getDriver();
+            wb = getWebDriver();
         } catch (Exception e) {
             System.out.println("Couldn't start WebDriver " + e.getMessage());
         }
@@ -61,16 +52,12 @@ public class pageTest {
     @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider")
     @TestDataSource(csv = "/CSVData/SimpleTest.csv", csvDelimiter = ";")
     public void runTest(HashMap<String, String> testData) throws Exception {
-        WebDriverWait wait = new WebDriverWait(wb, 60);
-        wb.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        ;
         String[] startURL = testData.get("").split(",");
 
         wb.get("http://test.rakuten-shop.de/teste-41755160/");
         WebElement category = wb.findElement(By.linkText("Teste"));
         category.click();
         wb.getCurrentUrl();
-
 
 
         WebElement filter = wb.findElement(By.xpath("//*[text() = 'Filter']"));
@@ -87,8 +74,6 @@ public class pageTest {
         for (WebElement value : values) {
             System.out.println(value.getText());
         }
-
-
 
 
         wb.findElement(By.linkText("Timberland")).click();
@@ -112,20 +97,20 @@ public class pageTest {
         //  System.out.println(var.getText());
 
         //find first listbox
- //       WebElement las = var.findElement(By.xpath("//*[@class='label' and contains(text(),'Variant type')]"));
- //       System.out.println("Single element " + las.getText());
+        //       WebElement las = var.findElement(By.xpath("//*[@class='label' and contains(text(),'Variant type')]"));
+        //       System.out.println("Single element " + las.getText());
         List<WebElement> variants = var.findElements(By.xpath("//*[@class='label' and contains(text(),'Variant type')]"));
 
         //catch all elements
-        for(WebElement varType : variants){
+        for (WebElement varType : variants) {
 
-           // List<WebElement> types = varType.findElements(By.xpath("//*[@id='rakuten_control_variant_1']"));
+            // List<WebElement> types = varType.findElements(By.xpath("//*[@id='rakuten_control_variant_1']"));
 
 
             System.out.println(varType.getText());
 
         }
-       //get values from listbox 1
+        //get values from listbox 1
 
         Select list1 = new Select(wb.findElement(By.id("rakuten_control_variant_1")));
         list1.selectByVisibleText("Variant value 1");
@@ -142,28 +127,28 @@ public class pageTest {
         listBox.sendKeys("Variant value 1");
 */
 
-     //   listBox.click();
-      //  listBox.findElement(By.xpath("//a[text()='Variant value 1']")).click();
+        //   listBox.click();
+        //  listBox.findElement(By.xpath("//a[text()='Variant value 1']")).click();
 
         //var.findElement(By.xpath("//*[@class='label' and contains(text(),'Variant')]"))
-    //    System.out.println(var.findElement(By.xpath("//*[@class='label' and contains(text(),'Variant type 1')")).getText());
+        //    System.out.println(var.findElement(By.xpath("//*[@class='label' and contains(text(),'Variant type 1')")).getText());
 
         WebElement listBox2 = wb.findElement(By.xpath("//*[@id='rakuten_control_variant_2']"));
         listBox2.click();
 
 
-       // List<WebElement> valuesFromListBox2 = listBox2.findElements(By.tagName("option"));
+        // List<WebElement> valuesFromListBox2 = listBox2.findElements(By.tagName("option"));
         final Select combobox2 = new Select(wb.findElement(By.xpath("//*[@id='rakuten_control_variant_2']")));
         List<WebElement> vals = combobox2.getOptions();
-        for (WebElement df : vals){
-            System.out.println("Class for combobx2 "+df.getAttribute("class"));
+        for (WebElement df : vals) {
+            System.out.println("Class for combobx2 " + df.getAttribute("class"));
         }
-       // System.out.println("Combobox "+combobox2.getOptions());
+        // System.out.println("Combobox "+combobox2.getOptions());
 
 
         List<WebElement> valuesFromListBox2 = listBox2.findElements(By.xpath("option"));
-        for (WebElement k : valuesFromListBox2){
-            System.out.println("Options " + k.getText() + " "+k.getAttribute("class"));
+        for (WebElement k : valuesFromListBox2) {
+            System.out.println("Options " + k.getText() + " " + k.getAttribute("class"));
         }
 
         List<String> firstList = new ArrayList<String>();
@@ -181,11 +166,23 @@ public class pageTest {
 
         assertThat(firstList).as("Some list").isEqualTo(secondList);
 
+
         try {
         } catch (Exception e) {
 
         }
     }
+
+    @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider", dependsOnMethods = {"runTest"})
+    @TestDataSource(csv = "/CSVData/TestVariantFilter.csv", csvDelimiter = ";")
+    public void VariantTest(HashMap<String, String> testData) {
+      WebDriver selD =  getWebDriver();
+
+
+    }
+
+
+
 
     @AfterSuite
     public void shoutDown() {
