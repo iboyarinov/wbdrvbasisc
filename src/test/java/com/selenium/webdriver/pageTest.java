@@ -1,9 +1,12 @@
 package com.selenium.webdriver;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.selenium.webdriver.basics.Config;
 import com.selenium.webdriver.basics.db.initDB;
 import com.selenium.webdriver.basics.testng.TestDataProvider;
 import com.selenium.webdriver.basics.testng.TestDataSource;
+import com.selenium.webdriver.page.filters;
 import com.selenium.webdriver.page.product;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -65,15 +68,28 @@ public class pageTest {
 
         WebElement filter = wb.findElement(By.xpath("//*[text() = 'Filter']"));
 
-     //   $(By.xpath("//div[@id='plst_toolbar']/div[@class='attributes']")).click();
-        $(By.xpath("//*[text() = 'Filter']")).click();
+/*     //   $(By.xpath("//div[@id='plst_toolbar']/div[@class='attributes']")).click();
+        $(By.xpath("/*//*[text() = 'Filter']")).click();
         List<SelenideElement> elements = $$(By.xpath("//div[@id='plst_toolbar']/div[@class='attributes']/div//a"));
         for(SelenideElement element:elements){
             System.out.println("Selenide item " + element.getText());
+        }*/
+
+        List<String> rs = filters.getItemFromFilter(wb, Config.getProperty("by_xPath.Filter"),Config.getProperty("by_xPath.FilterElements"));
+        for(String f : rs){
+            System.out.println("New value "+f);
         }
 
-        List<WebElement> filterValues = filter.findElements(By.xpath("//*[contains(text(),'Versandkostenfrei') or contains(text(),'Reduziert ') or contains(text(),'Sofort-Lieferbar')]"));
+
+        filters.setListBoxFilter(wb,Config.getProperty("by_xPath.Filter") ,"Sofort-Lieferbar");
+
+
+
+/*
+        List<WebElement> filterValues = filter.findElements(By.xpath("/*/
+/*[contains(text(),'Versandkostenfrei') or contains(text(),'Reduziert ') or contains(text(),'Sofort-Lieferbar')]"));
         System.out.println("Size of " + filterValues.size());
+*/
 
 
         //WebElement list = wb.findElement(By.className("brands"));
