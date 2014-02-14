@@ -1,5 +1,6 @@
 package com.selenium.webdriver;
 
+import com.codeborne.selenide.SelenideElement;
 import com.selenium.webdriver.basics.db.initDB;
 import com.selenium.webdriver.basics.testng.TestDataProvider;
 import com.selenium.webdriver.basics.testng.TestDataSource;
@@ -16,6 +17,8 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -61,6 +64,13 @@ public class pageTest {
 
 
         WebElement filter = wb.findElement(By.xpath("//*[text() = 'Filter']"));
+
+     //   $(By.xpath("//div[@id='plst_toolbar']/div[@class='attributes']")).click();
+        $(By.xpath("//*[text() = 'Filter']")).click();
+        List<SelenideElement> elements = $$(By.xpath("//div[@id='plst_toolbar']/div[@class='attributes']/div//a"));
+        for(SelenideElement element:elements){
+            System.out.println("Selenide item " + element.getText());
+        }
 
         List<WebElement> filterValues = filter.findElements(By.xpath("//*[contains(text(),'Versandkostenfrei') or contains(text(),'Reduziert ') or contains(text(),'Sofort-Lieferbar')]"));
         System.out.println("Size of " + filterValues.size());
@@ -174,7 +184,6 @@ public class pageTest {
     }
 
 
-
     @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider", dependsOnMethods = {"runTest"})
     @TestDataSource(csv = "/CSVData/TestVariantFilter.csv", csvDelimiter = ";")
     public void checkFilterAvailable() {
@@ -182,7 +191,12 @@ public class pageTest {
 
     }
 
+    @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider", dependsOnMethods = {"runTest"})
+    @TestDataSource(csv = "/CSVData/TestVariantFilter.csv", csvDelimiter = ";")
+    public void checkFilterBrands() {
 
+
+    }
 
 
     @Test(dataProviderClass = TestDataProvider.class, dataProvider = "csv2HashDataProvider", dependsOnMethods = {"runTest"})
