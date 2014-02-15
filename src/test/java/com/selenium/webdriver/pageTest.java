@@ -73,8 +73,8 @@ public class pageTest {
         $(By.linkText("Timberland")).click();
 
 
-        product.getProductsFromPage();
-        product.clickOnProductByName(wb, "Testing umlauts - öäz23gf");
+        product.getProductsFromPage(Config.getProperty("by_xPathProducts"));
+        product.clickOnProductByName("Testing umlauts - öäz23gf");
 
 
         //find how many variants available
@@ -140,10 +140,7 @@ public class pageTest {
 
 
 
-        product.getPrices("","");
-//        System.out.println(product.getPrice().toString());
-  //      System.out.println(product.getOldPrice().toString());
-
+        product.getPrices(Config.getProperty("by_xPathPrice"),Config.getProperty("by_xPathOldPrice"));
 
         System.out.println(product.isAvailableByXpath(Config.getProperty("by_xPathIsAvailable")));
         System.out.println(product.getStockByXpath("//span[contains(@class,'_inventory')]").toString());
@@ -187,7 +184,7 @@ public class pageTest {
         try {
             List<String> rs = filters.getItemFromFilter(Config.getProperty("by_xPath.Filter"), Config.getProperty("by_xPath.FilterActiveElements"));
 
-            filters.setListBoxFilter(wb, Config.getProperty("by_xPath.Filter"), "Sofort-Lieferbar");
+            filters.setListBoxFilter(Config.getProperty("by_xPath.Filter"), "Sofort-Lieferbar");
             //  $(By.xpath("//*[text()='Filter']")).shouldNot(Condition.exist);
             String namef = filters.checkFilterValue(Config.getProperty("by_xPath.FilterActive"));
             System.out.println("Value from filter " + namef);

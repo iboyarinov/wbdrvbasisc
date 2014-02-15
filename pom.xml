@@ -66,7 +66,7 @@
                 <configuration>
                     <systemPropertyVariables>
                         <propertyName>browser</propertyName>
-                        <propertyValue>com.tmw.tuxweb.qa.webdriver.CustomWebDriverProvider</propertyValue>
+                        <propertyValue>FIREFOX</propertyValue>
                     </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>

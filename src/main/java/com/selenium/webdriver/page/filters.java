@@ -25,14 +25,6 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class filters {
 
-    public static void resetFilterByName(String filterName) {
-
-    }
-
-    public static void resetFilter(String name) {
-
-    }
-
     public static List<String> getItemFromFilter(String filterXpath, String attributesXpath) {
         List<String> results = new ArrayList();
         try {
@@ -49,7 +41,7 @@ public class filters {
     }
 
 
-    public static void setListBoxFilter(WebDriver webDriver, String filterXpath, String value) {
+    public static void setListBoxFilter(String filterXpath, String value) {
 
         try {
             $(By.xpath(filterXpath)).click();
@@ -66,7 +58,7 @@ public class filters {
 
         try {
             $(By.xpath(filterXpath)).isDisplayed();
-            $(By.xpath("//div[@id='plst_toolbar']/div[@class='attributes active']")).click();
+            $(By.xpath(filterXpath)).click();
             checkedElements = $(By.xpath(filterXpath + "/div//li[@class='active']//a")).getText();
         } catch (Exception e) {
             System.out.println("Cannot get selected item from combobox " + e.getMessage());
@@ -91,7 +83,7 @@ public class filters {
     }
 
     public static void setVariantTypeById(String id, String value) {
-  //      $(By.id(id)).click();
+        //      $(By.id(id)).click();
         $(By.id(id)).sendKeys(value);
 
     }

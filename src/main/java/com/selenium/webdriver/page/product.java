@@ -19,33 +19,18 @@ import static com.codeborne.selenide.Selenide.refresh;
  */
 public class product {
 
-    public static void clickOnProductByName(WebDriver wb, String name) {
+    public static void clickOnProductByName(String name) {
 
         $(By.xpath("//a[text() = '" + name + "']")).click();
 
     }
 
-    public static List<String> getProductsFromPage() {
+    public static List<String> getProductsFromPage(String xPathProducts) {
 
-        List products = $$(By.xpath("//div[@class='itm jq_link']"));
+        List products = $$(By.xpath(xPathProducts));
 
         return products;
     }
-
-
-    public static Double getPrice(WebDriver wb, String priceName) {
-        Double price = 0.0;
-
-
-        if (priceName == "actualPrice") {
-            $(By.xpath("//span[class='price']")).getTagName();
-        } else {
-
-        }
-
-        return price;
-    }
-
 
     public static HashMap<String, Double> getPrices(String xPathPrice, String xPathOldPrice) {
         HashMap<String, Double> prices = new HashMap<>();
@@ -53,13 +38,13 @@ public class product {
         try {
             //wait for price update after product type selection
             //it's a little slow down test
-            $(By.xpath("//div[contains(@class,'discount_labe')]")).shouldBe(Condition.visible);
+            $(By.xpath(Config.getProperty("by_xPathReducedLabel"))).shouldBe(Condition.visible);
             //remove currency from price
-            String prc = $(By.xpath("//span[@class='price']")).getText();
+            String prc = $(By.xpath(xPathPrice)).getText();
             prc = prc.substring(0, prc.indexOf(" ")).replace(",", ".");
 //remove currency from old_price
-            $(By.xpath("//*[contains(@class,'_previous_price')]")).exists();
-            reduce_prc = $(By.xpath("//*[contains(@class,'_previous_price')]")).getText();
+            $(By.xpath(xPathOldPrice)).exists();
+            reduce_prc = $(By.xpath(xPathOldPrice)).getText();
             String reduce_prc1 = reduce_prc.substring(0, reduce_prc.indexOf(" ")).replace(",", ".");
 
             prices.put("Price", Double.parseDouble(prc));
