@@ -15,5 +15,7 @@ price DOUBLE,
 old_price DOUBLE,
 stock INT,
 available CHAR(1),
+ArtNum INT,
+EAN INT,
 FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCTS(ID)
 );

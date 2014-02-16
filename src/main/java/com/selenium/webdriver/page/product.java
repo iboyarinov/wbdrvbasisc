@@ -1,10 +1,9 @@
 package com.selenium.webdriver.page;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import com.selenium.webdriver.basics.Config;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.refresh;
+
 
 /**
  * Created by Hedg on 13.02.14.
@@ -32,8 +31,8 @@ public class product {
         return products;
     }
 
-    public static HashMap<String, Double> getPrices(String xPathPrice, String xPathOldPrice) {
-        HashMap<String, Double> prices = new HashMap<>();
+    public static Map<String, Object> getPrices(String xPathPrice, String xPathOldPrice) {
+        Map<String, Object> prices = new HashMap<>();
         String reduce_prc = null;
         try {
             //wait for price update after product type selection
@@ -55,16 +54,19 @@ public class product {
         return prices;
     }
 
-    public static Double getPrice() {
+    public static Double getPrice(String xPath) {
 
-        $(By.xpath("//div[contains(@class,'discount_labe')]")).shouldBe(Condition.visible);
+
+        //   $(By.xpath("//div[contains(@class,'discount_labe')]")).shouldBe(Condition.visible);
         //remove currency from price
-        String prc = $(By.xpath("//span[@class='price']")).getText();
+        String prc = $(By.xpath(xPath)).getText();
+        //remove substring ab and currency
+        prc = prc.substring((prc.indexOf(" "))).trim();
         prc = prc.substring(0, prc.indexOf(" ")).replace(",", ".");
         return Double.parseDouble(prc);
     }
 
-    public static Double getOldPrice() {
+    public static Double getOldPrice(String xPath) {
         //remove currency from price
         String reduce_prc = $(By.xpath("//*[contains(@class,'_previous_price')]")).getText();
         reduce_prc = reduce_prc.substring(0, reduce_prc.indexOf(" ")).replace(",", ".");
@@ -97,7 +99,12 @@ public class product {
     }
 
     public static String isAvailableByXpath(String xPath) {
-        return $(By.xpath(xPath)).getText();
+        String result = null;
+        if ($(By.xpath(xPath)).getText().equals("Sofort lieferbar")) {
+            result = "Y";
+        }
+
+        return result;
     }
 
     public static Integer getStockByXpath(String xPath) {
@@ -116,6 +123,16 @@ public class product {
     }
 
     public static void putToCart() {
+        $(By.name("button")).isDisplayed();
         $(By.name("button")).click();
     }
+
+    public static Double reducePercent(String xPath) {
+        String prc = $(By.xpath(xPath)).getText();
+        prc = prc.replace(" ", "");
+        prc = prc.substring(0, prc.indexOf("%"));
+
+        return Double.parseDouble(prc);
+    }
+
 }

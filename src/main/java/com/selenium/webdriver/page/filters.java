@@ -1,17 +1,8 @@
 package com.selenium.webdriver.page;
 
 import com.codeborne.selenide.SelenideElement;
-import com.google.common.base.Splitter;
-import com.google.common.collect.Lists;
-import com.selenium.webdriver.basics.Config;
-import com.sun.org.apache.xerces.internal.impl.xpath.XPath;
-import org.apache.xml.serializer.utils.SerializerMessages_ru;
-import org.bouncycastle.crypto.agreement.srp.SRP6Client;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,13 +16,25 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class filters {
 
+    public static void resetFilterByXpath(String xPath) {
+        $(By.xpath(xPath)).isDisplayed();
+        $(By.xpath(xPath)).click();
+        $(By.xpath(xPath + "/div//li[@class='active']//a")).click();
+
+    }
+
     public static List<String> getItemFromFilter(String filterXpath, String attributesXpath) {
         List<String> results = new ArrayList();
         try {
             $(By.xpath(filterXpath)).click();
             List<SelenideElement> elements = $$(By.xpath(attributesXpath));
             for (SelenideElement element : elements) {
-                results.add(element.getText());
+
+                //skip Alle Marken because is not a brand
+                if (!element.getText().equals("Alle Marken"))
+                    results.add(element.getText());
+                {
+                }
             }
 
         } catch (Exception e) {
@@ -88,11 +91,14 @@ public class filters {
 
     }
 
-    public static List<String> getVariantsOptionsById(String id, String optionType) {
+    public static List<String> getVariantsOptionsById(String id, String optionType) throws Exception {
         String key = null;
         List<String> result = new ArrayList<>();
 
+
         $(By.id(id)).click();
+        //need to wait while lisboxes synchronized
+        Thread.sleep(1500);
         List<SelenideElement> elements = $(By.id(id)).$$(By.tagName("option"));
 
         switch (optionType) {
